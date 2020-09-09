@@ -1,0 +1,43 @@
+﻿Step 1:
+Download following package from Nuget server for run long background task in Queue.
+Coravel
+
+Step 2:
+Add Client Side SignalR library Client Side Library Package.
+	1. In Solution Explorer, right-click the project, and select Add > Client-Side Library.
+	2. In the Add Client-Side Library dialog, for Provider select unpkg.
+	3. For Library, enter @microsoft/signalr@latest.
+	4. Select Choose specific files, expand the dist/browser folder, and select signalr.js and signalr.min.js.
+	5. Set Target Location to wwwroot/js/signalr/, and select Install.
+
+Step 3:
+Select the solution, Create a Hubs folder.
+
+Step 4:
+In the Hubs folder, create a JobProgressGroupHub.cs file. Check the class file.
+
+Step 5:
+Configure SignalR and Coravel in StartUp.cs file.
+
+	1. In configure service, add the following service.
+	
+	 services.AddQueue();
+
+     services.AddSignalR();
+
+	2. In Configure method, add following SignalR endpoint
+	
+	app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapControllerRoute(
+                    name: "default",
+                    pattern: "{controller=Home}/{action=Index}/{id?}");
+
+                endpoints.MapHub<JobProgressGroupHub>("/jobprogress"); // Map SignalR Endpoint
+            });
+
+
+Step 5:
+Create a JobProgressDemoController class in controller folder. Check Controller class code.
+
+

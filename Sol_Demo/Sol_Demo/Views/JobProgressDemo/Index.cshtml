@@ -1,0 +1,15 @@
+﻿@{
+    ViewData["Title"] = "Index";
+}
+
+@*Step 4*@
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h3>Start a long running background process by clicking on the button below:</h3>
+            <form asp-route="StartProgress">
+                <input id="btnLongRunningTask" type="submit" class="btn btn-dark" value="Queue Background Job" />
+            </form>
+        </div>
+    </div>
+</div>
