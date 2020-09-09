@@ -12,7 +12,7 @@
     <div class="row">
         <div class="col-md-12">
             <div class="progress">
-                <div id="progressStrip" class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+                <div id="progressStrip" class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
                 </div>
             </div>
         </div>
@@ -55,7 +55,7 @@
 
         // Show Progress Bar Display
         function displayProgressBar(counterPercentage, status) {
-            $("#progressStrip").data("aria-valuenow", counterPercentage);
+            $("#progressStrip").attr("aria-valuenow", counterPercentage);
             $("#progressStrip").css("width", `${counterPercentage}%`);
             $("#progressStrip").html(`${status} ${counterPercentage}%`);
         }
